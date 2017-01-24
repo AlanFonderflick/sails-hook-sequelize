@@ -38,6 +38,7 @@ module.exports = function(sails) {
           global[modelDef.globalId] = sequelize.define(modelDef.globalId, modelDef.attributes, modelDef.options);
           _.extend(global[modelDef.globalId], modelDef);
           sails.models[modelDef.globalId.toLowerCase()] = global[modelDef.globalId];
+          sails.models[modelDef.globalId.toLowerCase()].globalId = modelDef.globalId;
         }
 
         for (modelName in models) {
